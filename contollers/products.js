@@ -6,7 +6,7 @@ const conn = require("../db/db");
 //show all products
 const getAllProducts = (req, res) => {
   let sql = "SELECT * FROM product";
-  let query = conn.query(sql, (err, results) => {
+  conn.query(sql, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify(results));
   });

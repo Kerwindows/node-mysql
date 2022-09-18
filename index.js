@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 const productRouter = require('./routes/products')
 
 
-app.use('/product', productRouter)
+app.use('/products', productRouter)
 
 //Server listening
 app.listen(3000, () => {
