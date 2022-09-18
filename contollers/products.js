@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const conn = require("./db/db");
+const conn = require("../db/db");
 
 //show all products
 const getAllProducts = (req, res) => {

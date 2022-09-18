@@ -6,53 +6,10 @@ const mysql = require("mysql");
 // parse application/json
 app.use(bodyParser.json());
 
-//create database connection
-const conn = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "test",
-});
+const productRouter = require('./routes/products')
 
-//connect to database
-conn.connect((err) => {
-  if (err) throw err;
-  console.log("Mysql Connected...");
-});
 
-//show all products
-// app.get("/api/products", (req, res) => {
-//   let sql = "SELECT * FROM product";
-//   let query = conn.query(sql, (err, results) => {
-//     if (err) throw err;
-//     res.send(JSON.stringify(results));
-//   });
-// });
-
-//show single product
-// app.get("/api/products/:id", (req, res) => {
-//   let sql = "SELECT * FROM product WHERE product_id=" + req.params.id;
-//   let query = conn.query(sql, (err, results) => {
-//     if (err) throw err;
-//     res.send(JSON.stringify(results));
-//   });
-// });
-
-// //add new product
-// app.post("/api/products", (req, res) => {
-//   let data = {
-//     product_name: req.body.product_name,
-//     product_price: req.body.product_price,
-//   };
-//   let sql = "INSERT INTO product SET ?";
-//   let query = conn.query(sql, data, (err, results) => {
-//     if (err) throw err;
-//     res.send(JSON.stringify(results));
-//   });
-// });
-
-//update product
-
+app.use('/product', productRouter)
 
 //Server listening
 app.listen(3000, () => {
