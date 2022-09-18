@@ -6,7 +6,7 @@ const conn = require("../db/db");
 //show all products
 const getAllProducts = (req, res) => {
   let sql = "SELECT * FROM product";
-  let query = conn.query(sql, (err, results) => {
+  conn.query(sql, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify(results));
   });
@@ -15,7 +15,7 @@ const getAllProducts = (req, res) => {
 //show single product
 const getProductById = (req, res) => {
   let sql = "SELECT * FROM product WHERE product_id=" + req.params.id;
-  let query = conn.query(sql, (err, results) => {
+  conn.query(sql, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify(results));
   });
@@ -41,7 +41,7 @@ const updateProduct = (req, res) => {
     req.body.product_price +
     "' WHERE product_id=" +
     req.params.id;
-  let query = conn.query(sql, (err, results) => {
+  conn.query(sql, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify(results));
   });
@@ -50,7 +50,7 @@ const updateProduct = (req, res) => {
 //Delete product
 const deleteProduct = (req, res) => {
   let sql = "DELETE FROM product WHERE product_id=" + req.params.id + "";
-  let query = conn.query(sql, (err, results) => {
+  conn.query(sql, (err, results) => {
     if (err) throw err;
     res.send(JSON.stringify(results));
   });

@@ -6,9 +6,10 @@ const mysql = require("mysql");
 // parse application/json
 app.use(bodyParser.json());
 
-const productRouter = require("./routes/products");
+const productRouter = require('./routes/products')
 
-app.use("/product", productRouter);
+
+app.use('/products', productRouter)
 
 //Server listening
 app.listen(3000, () => {
